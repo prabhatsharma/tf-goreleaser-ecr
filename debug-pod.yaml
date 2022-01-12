@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: codebuild
+  labels:
+    app: codebuild
+spec:
+  containers:
+  - image: public.ecr.aws/codebuild/amazonlinux2-x86_64-standard:3.0
+    command: ["sleep", "86400"]
+    imagePullPolicy: IfNotPresent
+    name: codebuild
+  restartPolicy: Always
