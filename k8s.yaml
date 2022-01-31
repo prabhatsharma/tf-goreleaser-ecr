@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: tfge
-        image: public.ecr.aws/prabhat/tf-goreleaser-ecr:0.0.5
+        image: public.ecr.aws/prabhat/tf-goreleaser-ecr:0.0.6
         resources:
           limits:
             memory: "128Mi"
