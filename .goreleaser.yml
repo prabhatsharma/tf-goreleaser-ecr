@@ -95,6 +95,8 @@ dockers:
     build_flag_templates:
     - "--platform=linux/amd64"
     - "--build-arg=VERSION={{.Version}}"
+    - "--build-arg=COMMIT_HASH={{.FullCommit}}"
+    - "--build-arg=BUILD_DATE={{.Date}}"
     extra_files:
       - go.mod
       - go.sum
@@ -109,6 +111,8 @@ dockers:
     build_flag_templates:
     - "--platform=linux/arm64/v8"
     - "--build-arg=VERSION={{.Version}}"
+    - "--build-arg=COMMIT_HASH={{.FullCommit}}"
+    - "--build-arg=BUILD_DATE={{.Date}}"
     extra_files:
       - go.mod
       - go.sum
@@ -123,6 +127,8 @@ dockers:
     build_flag_templates:
     - "--platform=linux/arm/v7"
     - "--build-arg=VERSION={{.Version}}"
+    - "--build-arg=COMMIT_HASH={{.FullCommit}}"
+    - "--build-arg=BUILD_DATE={{.Date}}"
     extra_files:
       - go.mod
       - go.sum

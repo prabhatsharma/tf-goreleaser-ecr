@@ -1,5 +1,7 @@
 # syntax=docker/dockerfile:experimental
 ARG VERSION
+ARG COMMIT_HASH
+ARG BUILD_DATE
 ############################
 # STEP 1 build executable binary
 ############################
@@ -26,7 +28,7 @@ COPY . .
 RUN go get -d -v
 
 
-RUN CGO_ENABLED=0 go build -ldflags="-s -w -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.Version=$VERSION" -o tf-goreleaser-ecr cmd/tf-goreleaser-ecr/main.go
+RUN CGO_ENABLED=0 go build -ldflags="-s -w -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.Version=$VERSION -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.CommitHash=$COMMIT_HASH -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.BuildDate=$BUILD_DATE" -o tf-goreleaser-ecr cmd/tf-goreleaser-ecr/main.go
 ############################
 # STEP 2 build a small image
 ############################
