@@ -94,7 +94,7 @@ dockers:
     skip_push: "false"
     build_flag_templates:
     - "--platform=linux/amd64"
-    - "--build-arg=VERSION={{Env.GIT_TAG}}"
+    - "--build-arg=VERSION={{.Env.GIT_TAG}}"
     - "--build-arg=COMMIT_HASH={{.FullCommit}}"
     - "--build-arg=BUILD_DATE={{.Date}}"
     extra_files:
@@ -110,7 +110,7 @@ dockers:
     skip_push: "false"
     build_flag_templates:
     - "--platform=linux/arm64/v8"
-    - "--build-arg=VERSION={{Env.GIT_TAG}}"
+    - "--build-arg=VERSION={{.Env.GIT_TAG}}"
     - "--build-arg=COMMIT_HASH={{.FullCommit}}"
     - "--build-arg=BUILD_DATE={{.Date}}"
     extra_files:
