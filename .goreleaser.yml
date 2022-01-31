@@ -14,8 +14,8 @@ builds:
     ldflags:
     - -s -w 
     - -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.Version={{.Version}} 
-    - "-X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.BuildDate={{.Date}}"   # https://goreleaser.com/customization/templates/
-    - "-X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.CommitHash={{.Commit}}"
+    - -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.BuildDate={{.Date}}   # https://goreleaser.com/customization/templates/
+    - -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.CommitHash={{.Commit}}
     env:
       - CGO_ENABLED=0
     goos:
@@ -94,6 +94,7 @@ dockers:
     skip_push: "false"
     build_flag_templates:
     - "--platform=linux/amd64"
+    - "--build-arg=VERSION={{.Version}}"
     extra_files:
       - go.mod
       - go.sum
@@ -107,6 +108,7 @@ dockers:
     skip_push: "false"
     build_flag_templates:
     - "--platform=linux/arm64/v8"
+    - "--build-arg=VERSION={{.Version}}"
     extra_files:
       - go.mod
       - go.sum
@@ -120,6 +122,7 @@ dockers:
     skip_push: "false"
     build_flag_templates:
     - "--platform=linux/arm/v7"
+    - "--build-arg=VERSION={{.Version}}"
     extra_files:
       - go.mod
       - go.sum
