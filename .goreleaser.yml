@@ -94,7 +94,7 @@ dockers:
     skip_push: "false"
     build_flag_templates:
     - "--platform=linux/amd64"
-    - "--build-arg=VERSION={{.Version}}"
+    - "--build-arg=VERSION=custom"
     - "--build-arg=COMMIT_HASH={{.FullCommit}}"
     - "--build-arg=BUILD_DATE={{.Date}}"
     extra_files:
