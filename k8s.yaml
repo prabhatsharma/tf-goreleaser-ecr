@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tfge
+  namespace: tfge
+spec:
+  selector:
+    matchLabels:
+      app: tfge
+  template:
+    metadata:
+      labels:
+        app: tfge
+    spec:
+      containers:
+      - name: tfge
+        image: public.ecr.aws/prabhat/tf-goreleaser-ecr:0.0.4
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: tfge
+  namespace: tfge
+spec:
+  selector:
+    app: tfge
+  ports:
+  - port: 8080
+    targetPort: 8080
+
+
+
