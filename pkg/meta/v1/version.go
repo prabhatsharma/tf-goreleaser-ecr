@@ -3,6 +3,7 @@ package v1
 import (
 	"encoding/json"
 	"net/http"
+	"runtime"
 )
 
 var (
@@ -17,6 +18,8 @@ func VersionInfo(w http.ResponseWriter, r *http.Request) {
 		Version:    Version,
 		CommitHash: CommitHash,
 		BuildDate:  BuildDate,
+		OS:         runtime.GOOS,
+		Arch:       runtime.GOARCH,
 	}
 
 	bb, _ := json.Marshal(details)
@@ -28,4 +31,6 @@ type Details struct {
 	Version    string `json:"version"`
 	CommitHash string `json:"commit_hash"`
 	BuildDate  string `json:"date"`
+	OS         string `json:"os"`
+	Arch       string `json:"arch"`
 }
