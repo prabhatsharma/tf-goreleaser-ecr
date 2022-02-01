@@ -20,7 +20,7 @@ RUN adduser \
     --uid "${UID}" \    
     "${USER}"
 WORKDIR $GOPATH/src/github.com/prabhatsharma/tf-goreleaser-ecr/
-COPY ./dist/tf-goreleaser-ecr_binaries_$BUILDPLATFORM/tf-goreleaser-ecr .
+COPY ./dist/tf-goreleaser-ecr_binaries_${TARGETOS}_${TARGETARCH}/tf-goreleaser-ecr .
 
 ############################
 # STEP 2 build a small image
