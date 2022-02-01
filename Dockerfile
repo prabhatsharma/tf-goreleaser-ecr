@@ -20,6 +20,9 @@ RUN adduser \
     --uid "${UID}" \    
     "${USER}"
 WORKDIR $GOPATH/src/github.com/prabhatsharma/tf-goreleaser-ecr/
+
+ARG TARGETARCH
+ARG TARGETOS
 COPY ./dist/tf-goreleaser-ecr_binaries_${TARGETOS}_${TARGETARCH}/tf-goreleaser-ecr .
 
 ############################
