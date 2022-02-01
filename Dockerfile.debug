@@ -1,0 +1,16 @@
+# syntax=docker/dockerfile:experimental
+
+############################
+# STEP 1 build executable binary
+############################
+# FROM golang:alpine AS builder
+FROM --platform=$BUILDPLATFORM public.ecr.aws/docker/library/golang:latest as builder
+ARG VERSION
+ARG COMMIT_HASH
+ARG BUILD_DATE
+
+RUN echo "$VERSION" >> /buildargs
+RUN echo "$COMMIT_HASH" >> /buildargs
+RUN echo "$BUILD_DATE" >> /buildargs
+
+ENTRYPOINT ["cat", "/buildargs"]
