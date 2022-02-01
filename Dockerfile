@@ -23,7 +23,7 @@ WORKDIR $GOPATH/src/github.com/prabhatsharma/tf-goreleaser-ecr/
 
 ARG TARGETARCH
 ARG TARGETOS
-COPY ./dist/tf-goreleaser-ecr_binaries_${TARGETOS}_${TARGETARCH}/tf-goreleaser-ecr .
+COPY tf-goreleaser-ecr .
 
 ############################
 # STEP 2 build a small image
