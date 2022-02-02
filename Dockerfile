@@ -31,6 +31,10 @@ COPY . .
 # Using go get.
 RUN go get -d -v
 
+ENV VERSION=$VERSION
+ENV COMMIT_HASH=$COMMIT_HASH
+ENV BUILD_DATE=$BUILD_DATE
+
 RUN LDF="\"-s -w -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.Version=${VERSION} -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.CommitHash=${COMMIT_HASH} -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.BuildDate=${BUILD_DATE}\""
 
 RUN echo "Hello world" >> /variables.txt
