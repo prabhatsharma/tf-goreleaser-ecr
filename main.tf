@@ -29,7 +29,7 @@ resource "aws_codebuild_project" "tf-goreleaser-ecr" {
 
 
     environment {
-    compute_type                = "BUILD_GENERAL1_LARGE"
+    compute_type                = "BUILD_GENERAL1_MEDIUM"
     # compute_type                = "BUILD_ARM1_SMALL"
     image                       = "aws/codebuild/amazonlinux2-x86_64-standard:3.0"
     # image                       = "docker:dind"
