@@ -50,7 +50,7 @@ changelog:
       - "^test:"
 dockers:
   - image_templates:
-      - public.ecr.aws/prabhat/tf-goreleaser-ecr:v{{ .Version }}-amd64
+      - public.ecr.aws/prabhat/tf-goreleaser-ecr:{{ .Version }}-amd64
     use: buildx
     skip_push: "false"
     build_flag_templates:
@@ -63,7 +63,7 @@ dockers:
       - web
       - embed.go
   - image_templates:
-      - public.ecr.aws/prabhat/tf-goreleaser-ecr:v{{ .Version }}-arm64
+      - public.ecr.aws/prabhat/tf-goreleaser-ecr:{{ .Version }}-arm64
     use: buildx
     skip_push: "false"
     build_flag_templates:
@@ -76,7 +76,7 @@ dockers:
       - web
       - embed.go
   - image_templates:
-      - public.ecr.aws/prabhat/tf-goreleaser-ecr:v{{ .Version }}-armv7 
+      - public.ecr.aws/prabhat/tf-goreleaser-ecr:{{ .Version }}-armv7 
     use: buildx
     skip_push: "false"
     build_flag_templates:
