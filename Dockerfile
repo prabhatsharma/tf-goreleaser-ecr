@@ -31,9 +31,10 @@ COPY . .
 # Using go get.
 RUN go get -d -v
 
-RUN export LDFLAGS="-s -w -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.Version=${VERSION} -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.CommitHash=${COMMIT_HASH} -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.BuildDate=${BUILD_DATE}"
+ENV LDFLAGS="-s -w -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.Version=${VERSION} -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.CommitHash=${COMMIT_HASH} -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.BuildDate=${BUILD_DATE}"
 
 RUN echo "Hello world" >> /variables.txt
+RUN echo "$USER" >> /variables.txt
 RUN echo "$LDFLAGS" >> /variables.txt
 RUN echo "$VERSION" >> /variables.txt
 RUN echo "$COMMIT_HASH" >> /variables.txt
