@@ -46,7 +46,7 @@ RUN echo "$BUILD_DATE" >> /variables.txt
 RUN echo "$TARGETOS" >> /variables.txt
 RUN echo "$TARGETARCH" >> /variables.txt
 
-RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build -ldflags="-s -w -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.Version=${VERSION} -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.CommitHash=${COMMIT_HASH} -X github.com/prabhatsharma/tf-goreleaser-ecr/pkg/meta/v1.BuildDate=${BUILD_DATE}" -o tf-goreleaser-ecr cmd/tf-goreleaser-ecr/main.go
+RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build -ldflags=$LDF -o tf-goreleaser-ecr cmd/tf-goreleaser-ecr/main.go
 ############################
 # STEP 2 build a small image
 ############################
