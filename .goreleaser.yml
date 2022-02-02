@@ -54,6 +54,7 @@ dockers:
     use: buildx
     skip_push: "false"
     build_flag_templates:
+    - "--progress=plain"
     - "--build-arg=VERSION={{.Version}}"
     - "--build-arg=COMMIT_HASH={{.FullCommit}}"
     - "--build-arg=BUILD_DATE={{.Date}}"
@@ -70,6 +71,7 @@ dockers:
     use: buildx
     skip_push: "false"
     build_flag_templates:
+    - "--progress=plain"
     - "--build-arg=VERSION={{.Version}}"
     - "--build-arg=COMMIT_HASH={{.FullCommit}}"
     - "--build-arg=BUILD_DATE={{.Date}}"
@@ -86,6 +88,7 @@ dockers:
     use: buildx
     skip_push: "false"
     build_flag_templates:
+    - "--progress=plain"
     - "--build-arg=VERSION={{.Version}}"
     - "--build-arg=COMMIT_HASH={{.FullCommit}}"
     - "--build-arg=BUILD_DATE={{.Date}}"
@@ -102,6 +105,7 @@ dockers:
     use: buildx
     skip_push: "false"
     build_flag_templates:
+    - "--progress=plain"
     - "--build-arg=VERSION={{.Version}}"
     - "--build-arg=COMMIT_HASH={{.FullCommit}}"
     - "--build-arg=BUILD_DATE={{.Date}}"
@@ -118,6 +122,7 @@ dockers:
     use: buildx
     skip_push: "false"
     build_flag_templates:
+    - "--progress=plain"
     - "--build-arg=VERSION={{.Version}}"
     - "--build-arg=COMMIT_HASH={{.FullCommit}}"
     - "--build-arg=BUILD_DATE={{.Date}}"
@@ -134,6 +139,7 @@ dockers:
     use: buildx
     skip_push: "false"
     build_flag_templates:
+    - "--progress=plain"
     - "--build-arg=VERSION={{.Version}}"
     - "--build-arg=COMMIT_HASH={{.FullCommit}}"
     - "--build-arg=BUILD_DATE={{.Date}}"
