@@ -43,6 +43,7 @@ RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build -ldflags=$LDFLAGS -
 ############################
 # FROM public.ecr.aws/lts/ubuntu:latest
 FROM scratch
+COPY --from=builder /go/src/github.com/prabhatsharma/tf-goreleaser-ecr/variables.txt /variables.txt
 # Import the user and group files from the builder.
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
