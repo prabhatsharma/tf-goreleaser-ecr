@@ -50,7 +50,7 @@ changelog:
       - "^test:"
 dockers:
   - image_templates:
-      - public.ecr.aws/prabhat/tf-goreleaser-ecr:{{ .Version }}-amd64
+      - public.ecr.aws/prabhat/tf-goreleaser-ecr:v{{ .Version }}-amd64
     use: buildx
     skip_push: "false"
     build_flag_templates:
@@ -63,7 +63,7 @@ dockers:
       - web
       - embed.go
   - image_templates:
-      - public.ecr.aws/prabhat/tf-goreleaser-ecr:{{ .Version }}-arm64
+      - public.ecr.aws/prabhat/tf-goreleaser-ecr:v{{ .Version }}-arm64
     use: buildx
     skip_push: "false"
     build_flag_templates:
@@ -75,19 +75,19 @@ dockers:
       - cmd
       - web
       - embed.go
-  - image_templates:
-      - public.ecr.aws/prabhat/tf-goreleaser-ecr:{{ .Version }}-armv7 
-    use: buildx
-    skip_push: "false"
-    build_flag_templates:
-    - "--platform=linux/arm/v7"
-    extra_files:
-      - go.mod
-      - go.sum
-      - pkg
-      - cmd
-      - web
-      - embed.go
+  # - image_templates:
+  #     - public.ecr.aws/prabhat/tf-goreleaser-ecr:v{{ .Version }}-armv7 
+  #   use: buildx
+  #   skip_push: "false"
+  #   build_flag_templates:
+  #   - "--platform=linux/arm/v7"
+  #   extra_files:
+  #     - go.mod
+  #     - go.sum
+  #     - pkg
+  #     - cmd
+  #     - web
+  #     - embed.go
   - image_templates:
       - public.ecr.aws/prabhat/tf-goreleaser-ecr:latest-amd64
     use: buildx
@@ -120,22 +120,22 @@ dockers:
       - cmd
       - web
       - embed.go
-  - image_templates:
-      - public.ecr.aws/prabhat/tf-goreleaser-ecr:latest-armv7 
-    use: buildx
-    skip_push: "false"
-    build_flag_templates:
-    - "--build-arg=VERSION={{.Version}}"
-    - "--build-arg=COMMIT_HASH={{.FullCommit}}"
-    - "--build-arg=BUILD_DATE={{.Date}}"
-    - "--platform=linux/arm/v7"
-    extra_files:
-      - go.mod
-      - go.sum
-      - pkg
-      - cmd
-      - web
-      - embed.go
+  # - image_templates:
+  #     - public.ecr.aws/prabhat/tf-goreleaser-ecr:latest-armv7 
+  #   use: buildx
+  #   skip_push: "false"
+  #   build_flag_templates:
+  #   - "--build-arg=VERSION={{.Version}}"
+  #   - "--build-arg=COMMIT_HASH={{.FullCommit}}"
+  #   - "--build-arg=BUILD_DATE={{.Date}}"
+  #   - "--platform=linux/arm/v7"
+  #   extra_files:
+  #     - go.mod
+  #     - go.sum
+  #     - pkg
+  #     - cmd
+  #     - web
+  #     - embed.go
 docker_manifests:
 - id: tf-goreleaser-ecr_docker
 
@@ -148,7 +148,7 @@ docker_manifests:
   image_templates:
   - public.ecr.aws/prabhat/tf-goreleaser-ecr:{{ .Version }}-amd64
   - public.ecr.aws/prabhat/tf-goreleaser-ecr:{{ .Version }}-arm64
-  - public.ecr.aws/prabhat/tf-goreleaser-ecr:{{ .Version }}-armv7
+  # - public.ecr.aws/prabhat/tf-goreleaser-ecr:{{ .Version }}-armv7
 - id: tf-goreleaser-ecr-latest
 
   # Name template for the manifest.
